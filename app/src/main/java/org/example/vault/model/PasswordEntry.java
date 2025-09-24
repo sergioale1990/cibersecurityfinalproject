@@ -9,7 +9,7 @@ public class PasswordEntry {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;        // Ej: "Gmail"
+    private String serviceName;        // Ej: "Gmail"
     private String username;    // Ej: "sergio@example.com"
 
     @Lob
@@ -20,8 +20,8 @@ public class PasswordEntry {
     private Instant updatedAt;
 
     public PasswordEntry() {}
-    public PasswordEntry(String name, String username, String cipherText, String iv) {
-        this.name = name;
+    public PasswordEntry(String serviceName, String username, String cipherText, String iv) {
+        this.serviceName = serviceName;
         this.username = username;
         this.cipherText = cipherText;
         this.iv = iv;
@@ -33,7 +33,7 @@ public class PasswordEntry {
     public void onUpdate(){ this.updatedAt = Instant.now(); }
 
     public Long getId() { return id; }
-    public String getName() { return name; }
+    public String getServiceName() { return serviceName; }
     public String getUsername() { return username; }
     public String getCipherText() { return cipherText; }
     public String getIv() { return iv; }
