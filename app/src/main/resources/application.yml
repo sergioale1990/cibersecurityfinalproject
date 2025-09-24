@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:vault}
+      ?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      &useUnicode=true&characterEncoding=utf8
+    username: ${DB_USER:vault}
+    password: ${DB_PASS:vaultpass}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.format_sql: true
+      hibernate.jdbc.time_zone: UTC
+      hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+
+  main:
+    banner-mode: "off"
+
+logging.level.org.hibernate.SQL: off
